@@ -1,0 +1,114 @@
+========================================================================================
+                    TABEL AKURASI SEGMENTASI & MORFOLOGI
+         Perbandingan 3 Metode Segmentasi dengan Ground Truth
+========================================================================================
+
+Tanggal              : 19-01-2026 15:28:00
+Ground Truth         : LoG + Contrast_15 (dari MSE terbaik)
+Metode Segmentasi    : Sobel, Prewitt, LoG
+Structuring Element  : 3x3 (Opening + Closing)
+
+========================================================================================
+METODE SEGMENTASI: Sobel
+========================================================================================
+| No | Image Name                   | Akurasi (%) | Sensitivitas (%) | Spesifisitas (%) |
+----------------------------------------------------------------------------------------
+|  1 | plat_nomor_01_clear.png      |       97.74 |            10.81 |            99.77 |
+|  2 | plat_nomor_02_blur.png       |       97.15 |            55.38 |            99.24 |
+|  3 | plat_nomor_03_noisy.png      |       97.75 |            17.99 |            99.44 |
+|  4 | plat_nomor_04_dark.png       |       98.91 |            37.52 |            99.68 |
+|  5 | plat_nomor_05_bright.png     |       98.99 |            12.35 |            99.82 |
+|  6 | plat_nomor_06_tilted.png     |       98.76 |            12.27 |            99.67 |
+|  7 | plat_nomor_07_motion.png     |       98.77 |            37.70 |            99.72 |
+|  8 | plat_nomor_08_lowcontrast.png |       98.05 |            14.82 |            99.67 |
+|  9 | plat_nomor_09_scratched.png  |       97.03 |            20.22 |            98.83 |
+| 10 | plat_nomor_10_dirty.png      |       95.80 |            22.01 |            98.54 |
+| 11 | plat_nomor_11_sharp.png      |       96.21 |             9.60 |            99.93 |
+| 12 | plat_nomor_12_perspective.png |       97.39 |            30.47 |            99.12 |
+| 13 | plat_nomor_13_gaussian.png   |       97.04 |            58.81 |            98.50 |
+| 14 | plat_nomor_14_saltpepper.png |       97.23 |            15.44 |            99.61 |
+| 15 | plat_nomor_15_shadow.png     |       98.34 |            11.26 |            99.91 |
+----------------------------------------------------------------------------------------
+|    | RATA-RATA                    |       97.68 |            24.44 |            99.43 |
+========================================================================================
+
+========================================================================================
+METODE SEGMENTASI: Prewitt
+========================================================================================
+| No | Image Name                   | Akurasi (%) | Sensitivitas (%) | Spesifisitas (%) |
+----------------------------------------------------------------------------------------
+|  1 | plat_nomor_01_clear.png      |       97.74 |            12.02 |            99.74 |
+|  2 | plat_nomor_02_blur.png       |       97.15 |            55.45 |            99.23 |
+|  3 | plat_nomor_03_noisy.png      |       97.72 |            19.02 |            99.39 |
+|  4 | plat_nomor_04_dark.png       |       98.92 |            41.33 |            99.65 |
+|  5 | plat_nomor_05_bright.png     |       99.00 |            13.53 |            99.82 |
+|  6 | plat_nomor_06_tilted.png     |       98.68 |            20.54 |            99.50 |
+|  7 | plat_nomor_07_motion.png     |       98.76 |            37.59 |            99.72 |
+|  8 | plat_nomor_08_lowcontrast.png |       98.03 |            16.33 |            99.62 |
+|  9 | plat_nomor_09_scratched.png  |       96.93 |            22.26 |            98.68 |
+| 10 | plat_nomor_10_dirty.png      |       95.73 |            24.48 |            98.38 |
+| 11 | plat_nomor_11_sharp.png      |       96.22 |            10.00 |            99.92 |
+| 12 | plat_nomor_12_perspective.png |       97.39 |            31.64 |            99.09 |
+| 13 | plat_nomor_13_gaussian.png   |       97.04 |            58.80 |            98.50 |
+| 14 | plat_nomor_14_saltpepper.png |       97.16 |            18.20 |            99.45 |
+| 15 | plat_nomor_15_shadow.png     |       98.34 |            12.06 |            99.89 |
+----------------------------------------------------------------------------------------
+|    | RATA-RATA                    |       97.65 |            26.22 |            99.37 |
+========================================================================================
+
+========================================================================================
+METODE SEGMENTASI: LoG
+========================================================================================
+| No | Image Name                   | Akurasi (%) | Sensitivitas (%) | Spesifisitas (%) |
+----------------------------------------------------------------------------------------
+|  1 | plat_nomor_01_clear.png      |       99.82 |            93.83 |            99.96 |
+|  2 | plat_nomor_02_blur.png       |       99.96 |            99.55 |            99.98 |
+|  3 | plat_nomor_03_noisy.png      |       99.91 |            98.07 |            99.95 |
+|  4 | plat_nomor_04_dark.png       |       99.98 |            98.52 |           100.00 |
+|  5 | plat_nomor_05_bright.png     |       99.93 |            92.89 |           100.00 |
+|  6 | plat_nomor_06_tilted.png     |       99.92 |            97.45 |            99.95 |
+|  7 | plat_nomor_07_motion.png     |       99.93 |            96.13 |            99.99 |
+|  8 | plat_nomor_08_lowcontrast.png |       99.97 |            99.34 |            99.99 |
+|  9 | plat_nomor_09_scratched.png  |       99.79 |            93.92 |            99.93 |
+| 10 | plat_nomor_10_dirty.png      |       99.83 |            98.37 |            99.88 |
+| 11 | plat_nomor_11_sharp.png      |       99.42 |            88.68 |            99.88 |
+| 12 | plat_nomor_12_perspective.png |       99.83 |            94.04 |            99.98 |
+| 13 | plat_nomor_13_gaussian.png   |       99.96 |            99.52 |            99.97 |
+| 14 | plat_nomor_14_saltpepper.png |       99.73 |            93.99 |            99.89 |
+| 15 | plat_nomor_15_shadow.png     |       99.94 |            99.33 |            99.95 |
+----------------------------------------------------------------------------------------
+|    | RATA-RATA                    |       99.86 |            96.24 |            99.95 |
+========================================================================================
+
+========================================================================================
+                       RINGKASAN PERBANDINGAN METODE
+========================================================================================
+| Metode  | Rata-rata Akurasi | Rata-rata Sensitivitas | Rata-rata Spesifisitas |
+----------------------------------------------------------------------------------------
+| Sobel   |             97.68 |                  24.44 |                  99.43 |
+| Prewitt |             97.65 |                  26.22 |                  99.37 |
+| LoG     |             99.86 |                  96.24 |                  99.95 |
+========================================================================================
+
+*** METODE SEGMENTASI TERBAIK (Akurasi Tertinggi) ***
+Metode: LoG
+Akurasi Rata-rata: 99.86%
+========================================================================================
+
+KETERANGAN:
+----------------------------------------------------------------------------------------
+Ground Truth dibuat dari:
+  1. Citra asli + Perbaikan terbaik MSE (Contrast_15)
+  2. Edge detection dengan metode terbaik MSE (LoG)
+  3. Otsu thresholding + Morfologi (Opening + Closing)
+
+Setiap metode segmentasi:
+  1. Citra asli + Edge detection (Sobel/Prewitt/LoG)
+  2. Otsu thresholding + Morfologi (Opening + Closing)
+  3. Dibandingkan dengan Ground Truth
+
+Metrik:
+  - Akurasi      = (TP + TN) / Total x 100%
+  - Sensitivitas = TP / (TP + FN) x 100%
+  - Spesifisitas = TN / (TN + FP) x 100%
+========================================================================================
