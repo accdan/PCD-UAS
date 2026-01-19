@@ -1,0 +1,44 @@
+========================================================================
+                    PIXEL TABLES EXPORT SUMMARY
+========================================================================
+Date: 19-01-2026 22:52:09
+Total Images Processed: 15
+
+------------------------------------------------------------------------
+STRUCTURE:
+------------------------------------------------------------------------
+Pixel-Tables/
+├── 1_hasil_mse/
+│   ├── 01_citra_asli/     (15 files)
+│   ├── 02_brightness/     (15 files)
+│   ├── 03_contrast/       (15 files)
+│   ├── 04_combination/    (15 files)
+│   ├── 05_nonlinear/      (15 files)
+│   └── 06_improve/        (15 files)
+│
+└── 2_hasil_terbaik/
+    ├── 01_citra_asli/    (15 files)
+    ├── 02_ground_truth/  (15 files)
+    ├── 03_sobel_gt/      (15 files)
+    ├── 04_prewitt_gt/    (15 files)
+    └── 05_log_gt/        (15 files)
+
+------------------------------------------------------------------------
+CSV FORMAT:
+------------------------------------------------------------------------
+- Each CSV file contains 9x9 pixel values
+- Values extracted from top-left corner of image
+- Format: 9 rows x 9 columns
+- Can be opened with Excel, MATLAB, Python, etc.
+
+------------------------------------------------------------------------
+USAGE:
+------------------------------------------------------------------------
+1. Open CSV file in Excel or text editor
+2. Each row represents a row of pixels
+3. Each column represents a column of pixels
+4. Values range from 0-255 (grayscale) or 0-1 (binary)
+
+========================================================================
+Total CSV Files Generated: 165
+========================================================================

@@ -157,10 +157,7 @@ Dimana:
 ### **Langkah-langkah Eksekusi**
 
 #### **Langkah 1: Buka MATLAB**
-Buka MATLAB dan navigasi ke folder proyek:
-```matlab
-cd 'C:\Users\Dan\Desktop\MATKUL5\PCD-UAS'
-```
+Masuk ke direktori proyek PCD-UAS di MATLAB Command Window.
 
 #### **Langkah 2: Jalankan `hitung_mse.m`** ⚠️ WAJIB DULUAN!
 ```matlab
