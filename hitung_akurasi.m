@@ -20,12 +20,42 @@ outputFolder = 'image-hasil-terbaik';
 tableFolder = 'Table-Accuration';
 mseTableFolder = 'Table-Mse';
 
-% Buat subfolder untuk hasil
+% Subfolder untuk hasil
 citraAsliFolder = fullfile(outputFolder, 'citra-asli');
 citraAsliGTFolder = fullfile(outputFolder, 'citra-asli-groundtruth');
 sobelGTFolder = fullfile(outputFolder, 'sobel-groundtruth');
 prewittGTFolder = fullfile(outputFolder, 'prewitt-groundtruth');
 logGTFolder = fullfile(outputFolder, 'log-groundtruth');
+
+%% Cek Hasil Lama & Menu Pilihan
+hasOldOutput = exist(outputFolder, 'dir') && length(dir(fullfile(outputFolder, '**/*.*'))) > 2;
+hasOldTable = exist(tableFolder, 'dir') && length(dir(fullfile(tableFolder, '*.*'))) > 2;
+
+if hasOldOutput || hasOldTable
+    fprintf('----------------------------------------------------------\n');
+    fprintf('  DITEMUKAN HASIL PENGOLAHAN SEBELUMNYA!\n');
+    fprintf('----------------------------------------------------------\n');
+    fprintf('1. Hapus hasil lama & proses ulang dari awal\n');
+    fprintf('2. Lanjutkan tanpa hapus (timpa file lama)\n');
+    fprintf('----------------------------------------------------------\n');
+    
+    pilihanHapus = input('Pilih (1/2): ');
+    
+    if pilihanHapus == 1
+        fprintf('\nMenghapus hasil lama...\n');
+        if exist(outputFolder, 'dir')
+            rmdir(outputFolder, 's');
+            fprintf('  ✓ Folder %s dihapus\n', outputFolder);
+        end
+        if exist(tableFolder, 'dir')
+            rmdir(tableFolder, 's');
+            fprintf('  ✓ Folder %s dihapus\n', tableFolder);
+        end
+        fprintf('\n');
+    else
+        fprintf('\nMelanjutkan tanpa hapus...\n\n');
+    end
+end
 
 % Buat semua folder
 folders = {outputFolder, citraAsliFolder, citraAsliGTFolder, ...
@@ -74,7 +104,10 @@ techniqueSuffix = {'_brightness40', '_contrast15', '_combination', '_nonlinear',
 selectedSuffix = techniqueSuffix{bestTechniqueIdx};
 
 %% Daftar Gambar
-imageFiles = dir(fullfile(inputFolder, '*.png'));
+imageFiles = [dir(fullfile(inputFolder, '*.png')); ...
+              dir(fullfile(inputFolder, '*.jpg')); ...
+              dir(fullfile(inputFolder, '*.jpeg')); ...
+              dir(fullfile(inputFolder, '*.bmp'))];
 numImages = length(imageFiles);
 
 fprintf('Jumlah gambar yang akan diproses: %d\n\n', numImages);

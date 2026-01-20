@@ -1,4 +1,4 @@
-%% ========================================================================
+    %% ========================================================================
 %  HITUNG MSE - PERBANDINGAN METODE PERBAIKAN CITRA
 %  Menggunakan 3 Metode Edge Detection: Sobel, Prewitt, LoG
 % =========================================================================
@@ -38,6 +38,36 @@ end
 outputFolder = 'image-hasil-mse';
 tableFolder = 'Table-Mse';
 
+%% Cek Hasil Lama & Menu Pilihan
+hasOldMSE = exist(outputFolder, 'dir') && length(dir(fullfile(outputFolder, '*.*'))) > 2;
+hasOldTable = exist(tableFolder, 'dir') && length(dir(fullfile(tableFolder, '*.*'))) > 2;
+
+if hasOldMSE || hasOldTable
+    fprintf('----------------------------------------------------------\n');
+    fprintf('  DITEMUKAN HASIL PENGOLAHAN SEBELUMNYA!\n');
+    fprintf('----------------------------------------------------------\n');
+    fprintf('1. Hapus hasil lama & proses ulang dari awal\n');
+    fprintf('2. Lanjutkan tanpa hapus (timpa file lama)\n');
+    fprintf('----------------------------------------------------------\n');
+    
+    pilihanHapus = input('Pilih (1/2): ');
+    
+    if pilihanHapus == 1
+        fprintf('\nMenghapus hasil lama...\n');
+        if exist(outputFolder, 'dir')
+            rmdir(outputFolder, 's');
+            fprintf('  ✓ Folder %s dihapus\n', outputFolder);
+        end
+        if exist(tableFolder, 'dir')
+            rmdir(tableFolder, 's');
+            fprintf('  ✓ Folder %s dihapus\n', tableFolder);
+        end
+        fprintf('\n');
+    else
+        fprintf('\nMelanjutkan tanpa hapus...\n\n');
+    end
+end
+
 % Buat folder jika belum ada
 if ~exist(outputFolder, 'dir')
     mkdir(outputFolder);
@@ -46,8 +76,11 @@ if ~exist(tableFolder, 'dir')
     mkdir(tableFolder);
 end
 
-%% Daftar Gambar
-imageFiles = dir(fullfile(inputFolder, '*.png'));
+%% Daftar Gambar (semua format: jpg, jpeg, png, bmp)
+imageFiles = [dir(fullfile(inputFolder, '*.png')); ...
+              dir(fullfile(inputFolder, '*.jpg')); ...
+              dir(fullfile(inputFolder, '*.jpeg')); ...
+              dir(fullfile(inputFolder, '*.bmp'))];
 numImages = length(imageFiles);
 
 fprintf('==========================================================\n');
@@ -71,8 +104,14 @@ for idx = 1:numImages
     
     fprintf('Processing [%d/%d]: %s\n', idx, numImages, imageName);
     
-    % Baca gambar
-    img = imread(fullfile(inputFolder, imageName));
+    % Baca gambar dengan error handling
+    try
+        img = imread(fullfile(inputFolder, imageName));
+    catch ME
+        fprintf('  ERROR: Cannot read file %s - %s\n', imageName, ME.message);
+        fprintf('  Skipping this file...\n\n');
+        continue;
+    end
     
     % Konversi ke grayscale jika perlu
     if size(img, 3) == 3
